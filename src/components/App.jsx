@@ -9,7 +9,7 @@ var database;
 function App() {
   var [showing, setShowing] = useState(false);
   var [show, setShow] = useState(false);
-  var [bookShow, setBookShow] = useState({});
+  var [bookShow, setBookShow] = useState([]);
   var [favourites, setFavourites] = useState([]);
   //////////////////////////////////////////////////////////////////////
   useEffect(() => {
@@ -31,13 +31,14 @@ function App() {
   ///////////////////////////////////////////////////////////////////////////
 
   function bookSearch(book) {
-    var n = database.find(function (element) {
+    var n = database.filter(function (element) {
       return element.title.toLowerCase().includes(book.toLowerCase());
     });
+    
 
     //////
-    if (n == null) {
-      n = database.find(function (element) {
+    if (n.length === 0) {
+      n = database.filter(function (element) {
         return (
           element.author_first_names[0]
             .toLowerCase()
@@ -47,7 +48,7 @@ function App() {
             .includes(book.toLowerCase())
         );
       });
-      if (n == null) {
+      if (n.length === 0) {
         alert("Book not found");
       } else {
         setBookShow(n);
@@ -60,7 +61,7 @@ function App() {
       setShow(true);
     }
   }
-  //////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////
 
   function showFavourites(bookfav) {
     var n = favourites.find(function (element) {
@@ -81,42 +82,45 @@ function App() {
   function showingFavourites() {
     setShowing(!showing);
   }
-  ////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////
 
   return (
     <div>
       <Header />
+
       <SearchBar
         bookSearch={bookSearch}
         showingFavourties={showingFavourites}
         showing={showing}
       />
+
       {show &&
-        (showing ? (
-          favourites.map((book) => (
-            <InfoContainer
-              title={book.title}
-              authorf={book.author_first_names[0]}
-              authorl={book.author_last_names[0]}
-              series={book.series_name}
-              language={book.language}
-              img={book.published_works[0].cover_art_url}
-              favourites={showFavourites}
-              book={book}
-            />
-          ))
-        ) : (
-          <InfoContainer
-            title={bookShow.title}
-            authorf={bookShow.author_first_names[0]}
-            authorl={bookShow.author_last_names[0]}
-            series={bookShow.series_name}
-            language={bookShow.language}
-            img={bookShow.published_works[0].cover_art_url}
-            favourites={showFavourites}
-            book={bookShow}
-          />
-        ))}
+        (showing
+          ? favourites.map((book) => (
+              <InfoContainer
+                title={book.title}
+                authorf={book.author_first_names[0]}
+                authorl={book.author_last_names[0]}
+                series={book.series_name}
+                language={book.language}
+                img={book.published_works[0].cover_art_url}
+                favourites={showFavourites}
+                book={book}
+              />
+            ))
+          : bookShow.map((book) => (
+              <InfoContainer
+                title={book.title}
+                authorf={book.author_first_names[0]}
+                authorl={book.author_last_names[0]}
+                series={book.series_name}
+                language={book.language}
+                img={book.published_works[0].cover_art_url}
+                favourites={showFavourites}
+                book={book}
+              />
+              
+            )))}
     </div>
   );
 }

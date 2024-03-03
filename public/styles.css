@@ -8,7 +8,7 @@ html {
 }
 body {
   background: #f7f6bb;
-  background-image: url("https://www.transparenttextures.com/patterns/clean-textile.png");
+  background-image: url("https://www.transparenttextures.com/patterns/argyle.png");
 
  
   padding: 0 16px;
@@ -28,17 +28,7 @@ header h1 {
   font-weight: 200;
 }
 
-footer {
-  position: absolute;
-  text-align: center;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
-}
 
-footer p {
-  color: #ccc;
-}
 .note {
   background: #fff;
   border-radius: 7px;

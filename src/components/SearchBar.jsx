@@ -21,7 +21,7 @@ function SearchBar(props) {
       <form className="create-note">
         <input
           name="Search"
-          placeholder="Search by title or author asfbnkjdfbwe"
+          placeholder="Search by title or author"
           onChange={handleChange}
         />
 
