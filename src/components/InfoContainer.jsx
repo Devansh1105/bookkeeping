@@ -38,7 +38,7 @@ function InfoContainer(props) {
           className="favour"
           aria-label="favour"
         >
-          {icon ? <StarIcon /> : <StarBorderIcon />}
+          {props.favourite ? <StarIcon /> : <StarBorderIcon />}
         </Fab>
       </Zoom>
     </div>

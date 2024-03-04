@@ -34,7 +34,6 @@ function App() {
     var n = database.filter(function (element) {
       return element.title.toLowerCase().includes(book.toLowerCase());
     });
-    
 
     //////
     if (n.length === 0) {
@@ -61,7 +60,7 @@ function App() {
       setShow(true);
     }
   }
-  ////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////
 
   function showFavourites(bookfav) {
     var n = favourites.find(function (element) {
@@ -69,9 +68,32 @@ function App() {
     });
 
     if (n == null) {
+      bookfav.favourite = true;
+      //////////////////////////////////
+      var modifiedBookShow = bookShow.map((obj) => {
+        if (obj === bookfav) {
+          return { ...bookfav, favourite: true };
+        }
+        return obj;
+      });
+      bookShow = modifiedBookShow;
+
+      ////////////////////////////////////
       setFavourites([...favourites, bookfav]);
       console.log(favourites);
     } else {
+      /////////////////////////////////////////////////
+
+      var modifiedBookShow = bookShow.map((obj) => {
+        if (obj === bookfav) {
+          return { ...bookfav, favourite: false };
+        }
+        return obj;
+      });
+      bookShow = modifiedBookShow;
+
+      ////////////////////////////////////////////////
+      bookfav.favourite = false;
       var newfavourites = favourites.filter(function (element) {
         return element !== bookfav;
       });
@@ -82,18 +104,16 @@ function App() {
   function showingFavourites() {
     setShowing(!showing);
   }
-  /////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////
 
   return (
     <div>
       <Header />
-
       <SearchBar
         bookSearch={bookSearch}
         showingFavourties={showingFavourites}
         showing={showing}
       />
-
       {show &&
         (showing
           ? favourites.map((book) => (
@@ -106,6 +126,7 @@ function App() {
                 img={book.published_works[0].cover_art_url}
                 favourites={showFavourites}
                 book={book}
+                favourite={book.favourite}
               />
             ))
           : bookShow.map((book) => (
@@ -118,8 +139,8 @@ function App() {
                 img={book.published_works[0].cover_art_url}
                 favourites={showFavourites}
                 book={book}
+                favourite={book.favourite}
               />
-              
             )))}
     </div>
   );
