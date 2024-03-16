@@ -148,9 +148,67 @@ h3 {
   margin-top:10px;
   margin-bottom: 10px;
   border-radius: 10px;
-  border-
+
 }
 
 .infocontainer h1{
   text-decoration: underline;
+}
+
+#homebody {
+  background-color: #f5ba13;
+  background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png");
+
+  justify-content: center;
+  align-items: center;
+
+}
+
+#homeh1 {
+
+  text-align: center;
+  color: #fff;
+  font-family: "McLaren", cursive;
+  font-weight: 200;
+    margin: auto -16px;
+  padding: 16px 32px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+
+
+
+
+}
+
+
+#homecontainer{
+ position: absolute;
+left:50%;
+top:50%;
+transform: translate(-50%,-50%);
+text-align: center;}
+
+
+
+#homebutton{
+  border: none;
+  margin:20px;
+  padding:24px;
+  width: auto;
+  text-transform:uppercase;
+  border-radius: 6px;
+  cursor: pointer;
+  background-size: 200%;
+  color: white;
+  transition: 0.6s;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  font-family: "McLaren", cursive;
+  font-weight: 200;
+  font-size: large;
+  background-image: linear-gradient(to left, #FFC312,#EE5A24,#FFC312)
+  
+
+}
+
+#homebutton:hover{
+  background-position:right;
 }
