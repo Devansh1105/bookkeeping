@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Header from "./Header";
+import Header from "../components/Header";
 
-import SearchBar from "./SearchBar";
-import InfoContainer from "./InfoContainer";
+import SearchBar from "../components/SearchBar";
+import InfoContainer from "../components/InfoContainer";
 
 var database;
 
-function App() {
+function Page() {
   var [showing, setShowing] = useState(false);
   var [show, setShow] = useState(false);
   var [bookShow, setBookShow] = useState([]);
@@ -146,4 +146,4 @@ function App() {
   );
 }
 
-export default App;
+export default Page;

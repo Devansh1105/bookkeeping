@@ -5,13 +5,14 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
-    "react": "latest",
-    "react-dom": "latest",
-    "react-scripts": "latest",
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
-    "@emotion/styled": "latest",
-    "@emotion/react": "latest"
+    "react": "latest",
+    "react-dom": "latest",
+    "react-router-dom": "^6.22.3",
+    "react-scripts": "latest"
   },
   "devDependencies": {
     "typescript": "3.3.3"
