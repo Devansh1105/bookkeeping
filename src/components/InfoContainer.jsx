@@ -12,7 +12,7 @@ function InfoContainer(props) {
   }
 
   return (
-    <a href="/Detail">
+  
     <div className="infocontainer">
       <h1>{props.title}</h1>
       <img src={props.img}></img>
@@ -42,7 +42,7 @@ function InfoContainer(props) {
           {props.favourite ? <StarIcon /> : <StarBorderIcon />}
         </Fab>
       </Zoom>
-    </div></a>
+    </div>
   );
 }
 
